@@ -56,18 +56,15 @@ const members = [
      ] },
   
   
-  { slug: 'amal-hamdi', firstName: 'Amal', lastName: 'HAMDI.', role: 'Creative member', caption: 'Ideas with intention.', accent: 'pink', biography: '', description: '', experiences: [
-    { title: 'Creative contributor', organization: 'Business Unit 3 · JEENISo', period: '2025 — Present', description: 'Exploring ideas, shaping concepts, and building projects with the collective.', sample: true },
-    { title: 'Project collaborator', organization: 'Independent creative project', period: '2026', description: 'From first sketches to a shared visual concept, with a small creative team.', sample: true },
+  { slug: 'amal-hamdi', firstName: 'Amal', lastName: 'HAMDI.', role: 'Creative member', caption: 'Ideas with intention.', accent: 'pink', biography: 'Amal Hamdi is a Tunisian engineering student at the National Engineering School of Sousse (ENISO), specializing in Industrial Electronics Engineering. After completing a preparatory program in Mathematics and Physics and earning a Mathematics Baccalaureate with High Honors, she pursued her goal of becoming an engineer. She is interested in electronics, industrial automation, embedded systems, and innovative technological solutions. Her academic journey reflects her curiosity, analytical mindset, and commitment to continuous learning. Beyond engineering, Amal has a strong background in sports, particularly Taekwondo and gymnastics, which have helped develop her discipline, perseverance, and leadership skills.', description: 'I am a motivated engineering student passionate about technology, innovation, and problem-solving. I am particularly interested in electronics, automation, embedded systems, and the practical application of engineering principles to real-world challenges. I enjoy working on technical projects, exploring new digital tools, and collaborating with others to transform ideas into practical solutions. I also value creativity, communication, teamwork, and continuous personal development. My goal is to strengthen my technical expertise, gain hands-on engineering experience, and contribute to innovative projects with meaningful real-world applications.', experiences: [
+    { title: 'Junior Enterprise Member', organization: 'Business Unit 3 · JEENISo', period: '2026 — Present', description: 'Participating in collaborative activities and challenges focused on professional development, teamwork, and digital project creation.', sample: true },
+    { title: 'Coursework and technical projects Participant', organization: '', period: '', description: '* Participating in engineering coursework and technical projects related to electronics and industrial engineering.', sample: true },
+    { title: 'Electronic circuit design and simulation Test', organization: 'Independent creative project', period: '', description: 'Exploring electronic circuit design and simulation using engineering software.', sample: true },
   ], 
-  events: [{ title: 'Ideas in motion', type: 'Creative workshop', date: 'May 2026', participation: 'Participant', image: 'images/creative-workshop.jpg', description: 'A day of brainstorming, exchanging perspectives, and turning ideas into concepts.', sample: true },
-      { title: 'Design together', type: 'Community meetup', date: 'March 2026', participation: 'Attendee', image: 'images/creative-concepts.jpg', description: 'Meeting fellow creatives and exploring visual storytelling through hands-on exercises.', sample: true },
+  events: [{ title: 'Proteus, KiCad, EasyEDA, Fritzing, Autodesk software ', type: 'Creative workshop', date: '', participation: 'Participant', image: '', description: 'Collaborative design and simulation activities involving tools such as Proteus, KiCad, EasyEDA, Fritzing, Autodesk software, and Flux AI.', sample: true },
     ], 
-  certifications: [{ title: 'Design thinking foundations', area: 'Creative problem-solving', year: '2026', description: 'Sample entry for a course covering research, ideation, and prototyping.', sample: true },
-      { title: 'Creative project management', area: 'Planning & collaboration', year: '2026', description: 'Sample entry for learning about organizing creative work.', sample: true },
+  certifications: [{ title: 'Electronic circuit simulation: Proteus.', area: 'Creative problem-solving', year: '', description: 'Sample entry for a course covering research, ideation, and prototyping.', sample: true },
     ] },
-
-
 
 
 
