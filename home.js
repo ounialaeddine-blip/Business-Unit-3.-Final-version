@@ -138,6 +138,47 @@ function renderCapabilities() {
 
 
 /* ---------------------------------------------------------------------
+   E2. WEEKLY CHALLENGES (timeline)
+   One card per item of "challenges" in data.js.
+   --------------------------------------------------------------------- */
+function challengeState(status) {
+  const text = String(status).toLowerCase();
+  if (text.indexOf('progress') !== -1) return 'is-progress';
+  if (text.indexOf('complet') !== -1) return 'is-completed';
+  return 'is-upcoming';
+}
+
+function renderChallenges() {
+  let html = '';
+  challenges.forEach(function (item) {
+    let links = '';
+    (item.links || []).forEach(function (link) {
+      links += '<a class="challenge-link" href="' + escapeHTML(link.href) + '">' + escapeHTML(link.label) + icon('arrow-up-right') + '</a>';
+    });
+
+    // The Executive Bureau review is shown only when its text is filled in data.js
+    let review = '';
+    if (item.review && item.review.text && item.review.text.trim() !== '') {
+      review = '<blockquote class="challenge-review"><span>Executive Bureau review</span>' +
+        '<p>“' + escapeHTML(item.review.text.trim()) + '”</p>' +
+        '<cite>' + escapeHTML(item.review.author || 'Executive Bureau') + '</cite></blockquote>';
+    }
+
+    html += '<li class="challenge-card reveal ' + challengeState(item.status) + '">' +
+      '<span class="challenge-dot" aria-hidden="true"></span>' +
+      '<div class="challenge-top"><span class="challenge-week">' + escapeHTML(item.week) + '</span>' +
+      '<span class="challenge-status">' + escapeHTML(item.status) + '</span></div>' +
+      '<h3>' + escapeHTML(item.title) + '</h3>' +
+      '<p>' + escapeHTML(item.text) + '</p>' +
+      (links ? '<div class="challenge-links">' + links + '</div>' : '') +
+      review +
+      '</li>';
+  });
+  $('challenge-timeline').innerHTML = html;
+}
+
+
+/* ---------------------------------------------------------------------
    F. MANAGER CARD + MEMBER CARDS
    --------------------------------------------------------------------- */
 function renderManager() {
@@ -288,6 +329,7 @@ function init() {
   renderManifesto();
   renderStats();
   renderCapabilities();
+  renderChallenges();
   renderManager();
   renderMembers();
   renderFooter();

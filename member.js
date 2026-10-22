@@ -401,7 +401,7 @@ async function sharePage() {
 // Copy the contact email
 async function copyEmail() {
   try {
-    await navigator.clipboard.writeText('businessunit3.jeeniso.eniso@gmail.com');
+    await navigator.clipboard.writeText(site.email);
     $('copy-fail').hidden = true;
     flash($('copy-ok'), 2500);
   } catch (error) {
@@ -445,8 +445,15 @@ function setupButtons() {
 /* ---------------------------------------------------------------------
    I. START EVERYTHING
    --------------------------------------------------------------------- */
+// The contact email comes from "site.email" in data.js (one place to change it)
+function renderContactEmail() {
+  document.querySelectorAll('[data-mailto]').forEach(function (link) { link.href = 'mailto:' + site.email; });
+  document.querySelectorAll('[data-email-text]').forEach(function (element) { element.textContent = site.email; });
+}
+
 function init() {
   injectIcons();
+  renderContactEmail();
   setupPage();
   buildSceneTabs();
   showScene(0);

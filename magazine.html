@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BU3 Magazine · Business Unit 3 by JEENISo</title>
+  <meta name="description" content="The online magazine of JEENISo Business Unit 3: read it page by page, like a real book." />
+  <link rel="icon" href="images/bu3_logo.png" type="image/png" />
+
+  <!-- Montserrat font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;450;500;550;600;650;700;750;800&display=swap" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="creative-page home-page sub-page" id="top">
+
+    <!-- ============ HEADER (sticky) ============ -->
+    <header class="site-header">
+      <a href="index.html" class="site-brand" aria-label="JEENISo Business Unit 3 home">
+        <!-- If images/bu3-logo.png is missing, the small favicon logo is used instead (see README) -->
+        <img src="images/bu3_logo.png" alt="Business Unit 3 logo" onerror="this.onerror=null;this.src='images/favicon.png'" />
+        <span class="brand-link">Business Unit 3 | <span>JEENISo</span></span>
+      </a>
+
+      <!-- The menu links are inserted here by home.js (from "navigation" in data.js) -->
+      <nav class="site-navigation" id="home-navigation" aria-label="Main navigation">
+        <a class="btn btn-ghost home-button home-button-primary site-hello" data-mailto>Say hello <i data-icon="arrow-up-right"></i></a>
+      </nav>
+
+      <!-- Menu button: only visible on phones -->
+      <button class="btn btn-ghost home-icon-button site-menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="home-navigation"><i data-icon="menu"></i></button>
+    </header>
+
+    <main>
+
+      <!-- ============ INTRO ============
+           Texts come from "magazine" in data.js (title, issue, topic, description). -->
+      <section class="sub-hero">
+        <span class="small-kicker home-section-kicker"><i data-sparkle></i><span>WEEK <span id="mag-week"></span> — ONLINE MAGAZINE</span></span>
+        <h1><span id="mag-title"></span><span class="home-period">.</span></h1>
+        <p class="sub-hero-meta" id="mag-meta"><span id="mag-issue"></span><span id="mag-meta-sep"><i data-sparkle></i></span><span id="mag-topic"></span></p>
+        <p class="sub-hero-text" id="mag-description"></p>
+        <div class="sub-hero-actions">
+          <a class="btn btn-ghost home-button home-button-primary" id="mag-download" download>Download the PDF <i data-icon="arrow-down"></i></a>
+          <a class="btn btn-ghost home-button home-button-link" href="index.html#challenges">All the challenges <i data-icon="arrow-up-right"></i></a>
+        </div>
+      </section>
+
+      <!-- ============ THE MAGAZINE (page-turning book) ============
+           magazine.js reads the PDF (PDF.js), turns every page into a picture,
+           and gives them to the page-turning library (StPageFlip). -->
+      <section class="mag-stage" id="reader" aria-label="Magazine reader">
+        <div class="mag-viewer" id="mag-viewer">
+
+          <!-- Loading bar (hidden when the book is ready) -->
+          <div class="mag-loading" id="mag-loading">
+            <span class="mag-bar"><i id="mag-progress"></i></span>
+            <p id="mag-loading-text">Opening the magazine…</p>
+          </div>
+
+          <!-- The book. "mag-fit" is the box whose width we choose; the page-turning
+               library then sizes the book inside it. -->
+          <div class="mag-fit" id="mag-fit"><div class="mag-book" id="mag-book"></div></div>
+
+          <!-- Shown if the PDF cannot be opened -->
+          <div class="mag-empty" id="mag-empty" hidden>
+            <i data-sparkle></i>
+            <h2>The magazine is not available yet<span class="home-period">.</span></h2>
+            <p id="mag-empty-text"></p>
+          </div>
+
+          <!-- Controls -->
+          <div class="mag-controls" id="mag-controls" hidden>
+            <button class="btn btn-ghost mag-button" id="mag-prev" aria-label="Previous page"><i data-icon="arrow-left"></i></button>
+            <span class="mag-counter" id="mag-counter" aria-live="polite"></span>
+            <button class="btn btn-ghost mag-button" id="mag-next" aria-label="Next page"><i data-icon="arrow-right"></i></button>
+            <span class="mag-sep" aria-hidden="true"></span>
+            <button class="btn btn-ghost mag-button" id="mag-full" aria-label="Full screen" title="Full screen"><i data-icon="maximize"></i></button>
+          </div>
+        </div>
+        <p class="mag-hint" id="mag-hint" hidden>Click a page corner, swipe, or use the ← → keys to turn the pages.</p>
+      </section>
+
+      <!-- ============ MEMBERS' COMMENTS ============
+           Filled by subpage.js from comments.magazine in data.js. -->
+      <section class="cm-section reveal" id="comments" aria-label="Comments from our members">
+        <div class="work-heading">
+          <div>
+            <span class="small-kicker home-section-kicker"><i data-sparkle></i><span>OUR MEMBERS</span></span>
+            <h2>Comments<span class="home-period">.</span></h2>
+          </div>
+        </div>
+        <div class="cm-list" id="cm-list"></div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+      <div class="site-footer-main">
+        <div class="site-footer-brand">
+          <div class="site-footer-brand-row">
+            <img src="images/bu3_logo.png" alt="Business Unit 3 logo" onerror="this.onerror=null;this.src='images/favicon.png'" />
+            <span class="brand-link">Business Unit 3 #ftw<span></span><span class="home-period">.</span></span>
+          </div>
+          <p>A creative center, All rights are conserved<span class="home-period">.</span></p>
+          <!-- Optional image: hidden automatically if images/jeeniso-logo.png does not exist -->
+          <img class="site-footer-jeeniso" src="images/jeeniso_logo.png" alt="JEENISo emblem" onerror="this.style.display='none'" />
+        </div>
+
+        <!-- Links are inserted here by home.js (same "navigation" list as the header) -->
+        <nav aria-label="Footer navigation"><h2>Explore<span class="home-period">.</span></h2></nav>
+
+        <div class="site-footer-contact" id="footer-contact">
+          <h2>Say hello<span class="home-period">.</span></h2>
+          <a data-mailto><span id="footer-email"></span><i data-icon="arrow-up-right"></i></a>
+          <p id="footer-location"></p>
+          <!-- Social links are added here by home.js only if "socials" in data.js is not empty -->
+        </div>
+      </div>
+      <div class="site-footer-bottom">
+        <span>BUSINESS UNIT 3 | National School of Engineering, Sousse.</span>
+        <i data-sparkle></i>
+        <span id="footer-edition"></span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Libraries (copies are in vendor/, no internet needed for them):
+       PDF.js reads the PDF, StPageFlip animates the page turning. -->
+  <script src="vendor/pdf.min.js"></script>
+  <script src="vendor/page-flip.browser.js"></script>
+
+  <!-- Order matters: data first, then shared code, then this page's code -->
+  <script src="data.js"></script>
+  <script src="common.js"></script>
+  <script src="subpage.js"></script>
+  <script src="magazine.js"></script>
+</body>
+</html>

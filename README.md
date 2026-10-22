@@ -1,15 +1,18 @@
 # BU3 website — plain HTML / CSS / JavaScript
 
 Same design as the Lovable (React + TypeScript) project, rebuilt so you can read it, edit it and grow it.
-It has **two pages**:
+It has **four pages**:
 
 | Page | What it is |
 |---|---|
 | `index.html` | The BU3 **home page**: hero, statement + numbers, "What we do", manager banner (with Contact button), member cards with photos, closing banner, footer |
 | `member.html?member=amal-hamdi` | One member's **portfolio** (the part after `member=` is the member's `slug` in `data.js`). The home page links to every member. **The manager has no portfolio page** (opening his link sends you back to the home page). |
+| `magazine.html` | **Week 3 — online magazine.** Your PDF shown as a page-turning book, a download button, and the members' comments at the bottom |
+| `podcast.html` | **Week 3 — podcast script.** Guest card, script with reading tools (text size, reading mode, auto-scroll), the guest video, and the members' comments at the bottom |
 
 ## How to run it
 Double-click `index.html`. No install, no build step.
+**Exception: the magazine reader** (`magazine.html`) needs a web server, a browser will not read a PDF from a double-click. Use VS Code **Live Server**, or the Vercel address.
 Tip: in VS Code, the **Live Server** extension reloads the page every time you save.
 (You need an internet connection for the Montserrat font; without it the page still works with a default font.)
 
@@ -24,6 +27,11 @@ Tip: in VS Code, the **Live Server** extension reloads the page every time you s
 | `common.js` | Helpers + icons + scrolling banner + fade-in, shared by both pages | Rarely |
 | `home.js` | Builds the home page from `data.js` + its interactions (phone menu, pause button, sticky header, back-to-top) | To change home behavior |
 | `member.js` | Same, for the member page (scenes, tabs, pop-ups) | To change portfolio behavior |
+| `magazine.html` · `magazine.js` | Magazine page and its page-turning reader | Rarely |
+| `podcast.html` · `podcast.js` | Podcast script page and its reading tools | Rarely |
+| `subpage.js` | Header, footer, menu and members' comments for the two Week 3 pages | Rarely |
+| `magazine/` | The magazine PDF (`magazine.pdf`, a blank layout until you replace it) | Each issue |
+| `vendor/` | Two libraries used by the reader (PDF.js and StPageFlip), with their licenses | Never |
 | `images/` | Photos and logos | To change pictures |
 
 Script order in each HTML file matters: `data.js` → `common.js` → `home.js` (or `member.js`).
@@ -81,11 +89,16 @@ The manager is only on the home page, in the "Leading the unit" banner. Write hi
 
 **Change the "What we do" photos:** `capabilities` in `data.js` (put the picture in `images/`).
 
-## What is not built yet
-The **Challenges** section is only an anchor (`id="challenges"`, the small sparkle divider in `index.html`). The menu, the hero pill and two cards already link to it. When you build it, add the data to `data.js` (like `capabilities`), the HTML between the "What we do" and "Leadership" sections, and the styles at the end of `style.css`.
+## Week 3 pages (templates, content comes from you)
+The three Week 3 pages are empty templates: structure and placement only. Everything is filled from `data.js`; a field left as `''` is hidden.
+
+- **Magazine:** replace `magazine/magazine.pdf` with your PDF (same name, A4 portrait, under ~15 MB, page 1 = cover, last page = back cover). Fill `magazine` in `data.js` (issue, topic, description).
+- **Podcast:** fill `podcast` in `data.js`: episode, title, `guest` (name, role, photo, bio), and the `segments` of the script (copy, delete or add blocks). Video: write `video.youtubeId` or `video.file`; until then a "Video coming soon" frame is shown.
+- **Members' comments:** `comments.magazine` and `comments.podcast` in `data.js`. One card per member is already set (photo, name and role come from `members`). Write the `text` of each one. Delete a line to remove a card.
+- **Challenges:** the timeline on the home page comes from `challenges` in `data.js` (status, text, links, Executive Bureau review).
 
 ## Ideas to go further
-1. Build the Challenges section (timeline + Executive Bureau reviews).
+1. Fill the Executive Bureau reviews of the challenges (`review.text` in `challenges`).
 2. Make the manifesto words light up one after the other (add a `transition-delay` per word in `renderManifesto()`).
 3. Add a search box that filters the member cards.
 4. Make projects and "My playground" skills per member too (same idea as `experiences`: move the lists into each member, hide when empty).

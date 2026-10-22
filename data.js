@@ -258,7 +258,7 @@ const site = {
   edition: { start: 2026, end: 2027 },
   heroPhoto: 'images/team-photo.jpg',
   heroPhotoAlt: 'All the members of Business Unit 3 together',
-  challenge: { week: '02', title: 'Web design & its conception', status: 'In progress' },
+  challenge: { week: '03', title: 'Online magazine & podcast', status: 'In progress' },
   manifesto: 'We are a creative center where ideas are born, projects take shape, and curious minds move forward together.'
 };
 
@@ -270,6 +270,8 @@ const navigation = [
   { label: 'The unit', href: '#unit' },
   { label: 'What we do', href: '#what-we-do' },
   { label: 'Challenges', href: '#challenges' },
+  { label: 'Magazine', href: 'magazine.html' },
+  { label: 'Podcast', href: 'podcast.html' },
   { label: 'Members', href: '#members' },
   { label: 'Contact', href: '#contact' }
 ];
@@ -286,6 +288,114 @@ const capabilities = [
   { title: 'Projects', text: 'Ideas made real, together.', image: 'images/robot-rover.jpg', alt: 'A collaborative rover prototype', href: '#challenges' },
   { title: 'Experiences', text: 'Events, growth and shared moments.', image: 'images/engineering-lab.jpg', alt: 'Students collaborating in a hands-on workshop', href: '#members' }
 ];
+
+/* ---------- WEEKLY CHALLENGES ----------
+   The timeline in the "Challenges" section of the home page.
+   One item per week, the newest last. Add a new one every week.
+   week    : '01', '02'...
+   title   : name of the challenge
+   status  : 'Completed' | 'In progress' | 'Coming up'  (the color follows the word)
+   text    : one or two sentences
+   links   : buttons under the text (optional):  [{ label: 'Read it', href: 'magazine.html' }]
+   review  : the Executive Bureau's review (optional). Leave text: '' to hide it.
+             Example: review: { text: 'A strong first challenge.', author: 'Executive Bureau' }
+*/
+const challenges = [
+  { week: '01', title: 'Advertising video for the JEENISo FabLab', status: 'Completed',
+    text: 'The first challenge set by the Executive Bureau: tell the story of the JEENISo FabLab in a short advertising video.',
+    links: [],
+    review: { text: '', author: 'Executive Bureau' } },
+  { week: '02', title: 'Web design & its conception', status: 'Completed',
+    text: 'Designing and building the Business Unit 3 website: its identity, its pages and the portfolio of every member.',
+    links: [],
+    review: { text: '', author: 'Executive Bureau' } },
+  { week: '03', title: 'Online magazine & podcast', status: 'In progress',
+    text: 'An online magazine about a viral topic, a podcast script for our upcoming reel podcast, and the video with our guest.',
+    links: [{ label: 'Read the magazine', href: 'magazine.html' }, { label: 'Podcast script', href: 'podcast.html' }],
+    review: { text: '', author: 'Executive Bureau' } }
+];
+
+/* ---------- MAGAZINE (magazine.html) ----------
+   The page is an EMPTY TEMPLATE: fill the fields below, nothing else to touch.
+   A field left as '' is simply hidden on the page.
+   pdf     : your magazine file. Put it in the magazine/ folder, KEEP THE NAME
+             magazine.pdf (or change the path here). A4 portrait, under ~15 MB.
+             Page 1 = cover, last page = back cover.
+             Until you replace the file, a blank layout-only placeholder is shown.
+   pdfName : name of the file when someone downloads it
+*/
+const magazine = {
+  title: 'BU3 Magazine',
+  issue: '',
+  topic: '',
+  description: '',
+  pdf: 'magazine/magazine.pdf',
+  pdfName: 'BU3-Magazine.pdf'
+};
+
+/* ---------- PODCAST SCRIPT (podcast.html) ----------
+   EMPTY TEMPLATE. Fill what you have, leave the rest as '' (hidden on the page).
+   guest   : name / role / photo (path in images/, optional) / bio
+   video   : fill ONE of these when the video exists, otherwise a "coming soon" frame is shown
+               youtubeId : the part after  watch?v=  in the YouTube link
+               file      : path of a video file, example 'video/episode.mp4' (keep it small)
+             aspect : '16/9' for a wide video, '9/16' for a vertical reel
+   segments: the script, in order. One block per segment:
+               time    : '00:00' (optional)
+               type    : 'intro' | 'question' | 'answer' | 'break' | 'outro'
+               speaker : who talks (optional)
+               text    : what is said. Use \n for a new paragraph.
+               note    : stage direction shown in italics (optional)
+             The 6 empty segments below show the placement. Copy, delete or add blocks freely.
+*/
+const podcast = {
+  show: 'BU3 Podcast',
+  episode: '',
+  title: '',
+  status: '',
+  description: '',
+  guest: { name: '', role: '', photo: '', bio: '' },
+  video: { youtubeId: '', file: '', aspect: '16/9' },
+  segments: [
+    { time: '', type: 'intro',    speaker: '', text: '', note: '' },
+    { time: '', type: 'question', speaker: '', text: '', note: '' },
+    { time: '', type: 'answer',   speaker: '', text: '', note: '' },
+    { time: '', type: 'question', speaker: '', text: '', note: '' },
+    { time: '', type: 'answer',   speaker: '', text: '', note: '' },
+    { time: '', type: 'outro',    speaker: '', text: '', note: '' }
+  ]
+};
+
+/* ---------- MEMBERS' COMMENTS (bottom of magazine.html and podcast.html) ----------
+   One card per member is already set, with his photo, name and role filled in
+   automatically from "members" above. You only write the comment:
+     member : the member's slug (do not change)
+     text   : the comment  (leave '' and the card shows an empty frame)
+     date   : free text, example '21 Oct 2026' (optional)
+   To remove a member's card, delete his line. To add one, copy a line.
+*/
+const comments = {
+  magazine: [
+    { member: 'oussama-berrehouma', text: '', date: '' },
+    { member: 'alaeddine-ouni', text: '', date: '' },
+    { member: 'amal-hamdi', text: '', date: '' },
+    { member: 'eya-haouari', text: '', date: '' },
+    { member: 'hamdi-karmai', text: '', date: '' },
+    { member: 'farah-haj-fraj', text: '', date: '' },
+    { member: 'momen-nsiri', text: '', date: '' },
+    { member: 'mohamed-aziz-mili', text: '', date: '' }
+  ],
+  podcast: [
+    { member: 'oussama-berrehouma', text: '', date: '' },
+    { member: 'alaeddine-ouni', text: '', date: '' },
+    { member: 'amal-hamdi', text: '', date: '' },
+    { member: 'eya-haouari', text: '', date: '' },
+    { member: 'hamdi-karmai', text: '', date: '' },
+    { member: 'farah-haj-fraj', text: '', date: '' },
+    { member: 'momen-nsiri', text: '', date: '' },
+    { member: 'mohamed-aziz-mili', text: '', date: '' }
+  ]
+};
 
 /* ---------- COUNTS (calculated, never typed by hand) ----------
    They update by themselves when you add or remove a member above.

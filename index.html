@@ -130,15 +130,22 @@
         <div class="home-cap-grid" id="cap-grid"></div>
       </section>
 
-      <!-- ============ CHALLENGES (anchor only for now) ============
-           The menu and the hero pill link here (#challenges).
-           This is the place to build the "Weekly challenges" section later. -->
-      <section id="challenges" class="home-challenges-anchor" aria-label="Challenges"><i data-sparkle></i></section>
+      <!-- ============ 03 · WEEKLY CHALLENGES (timeline) ============
+           The cards are created by home.js from "challenges" in data.js.
+           To add a challenge or an Executive Bureau review, edit data.js, not this file. -->
+      <section class="home-challenges" id="challenges">
+        <div class="home-challenges-head reveal">
+          <span class="small-kicker home-section-kicker"><i data-sparkle></i><span class="home-section-number">03</span><span>— WEEKLY CHALLENGES</span></span>
+          <h2>One challenge.<br />Every week<span class="home-period">.</span></h2>
+          <p>Each week the Executive Bureau sets Business Unit 3 a new challenge. This is the road so far.</p>
+        </div>
+        <ol class="challenge-timeline" id="challenge-timeline"></ol>
+      </section>
 
-      <!-- ============ 03 · LEADERSHIP (manager card) ============ -->
+      <!-- ============ 04 · LEADERSHIP (manager card) ============ -->
       <section class="home-manager reveal" id="leadership">
         <div class="home-manager-card">
-          <span class="small-kicker home-section-kicker"><i data-sparkle></i><span class="home-section-number">03</span><span>— LEADING THE UNIT</span></span>
+          <span class="small-kicker home-section-kicker"><i data-sparkle></i><span class="home-section-number">04</span><span>— LEADING THE UNIT</span></span>
           <h2 id="manager-title"></h2>
           <p id="manager-text"></p>
           <!-- CONTACT button. home.js fills it from the manager's "phone" in data.js:
@@ -157,11 +164,11 @@
         </div>
       </section>
 
-      <!-- ============ 04 · MEMBERS ============ -->
+      <!-- ============ 05 · MEMBERS ============ -->
       <section class="home-unit" id="members">
         <div class="work-heading reveal">
           <div>
-            <span class="small-kicker home-section-kicker"><i data-sparkle></i><span class="home-section-number">04</span><span>— CURIOUS MINDS</span></span>
+            <span class="small-kicker home-section-kicker"><i data-sparkle></i><span class="home-section-number">05</span><span>— CURIOUS MINDS</span></span>
             <h2>Curious minds<span class="home-period">.</span></h2>
           </div>
           <span class="work-count" id="members-count"></span>
@@ -170,11 +177,11 @@
         <div class="home-members" id="home-members"></div>
       </section>
 
-      <!-- ============ 05 · CLOSING BANNER ============ -->
+      <!-- ============ 06 · CLOSING BANNER ============ -->
       <section class="creative-outro home-outro reveal" id="contact">
         <img src="images/creative-workshop.jpg" alt="BU3 creative collective together" width="1600" height="640" loading="lazy" />
         <div>
-          <span class="small-kicker home-section-kicker"><i data-sparkle></i><span class="home-section-number">05</span><span>— ONE UNIT. ENDLESS POSSIBILITIES.</span></span>
+          <span class="small-kicker home-section-kicker"><i data-sparkle></i><span class="home-section-number">06</span><span>— ONE UNIT. ENDLESS POSSIBILITIES.</span></span>
           <h2>Let’s make<br />something new<span class="home-period">.</span></h2>
           <a class="btn btn-ghost home-button home-button-primary" data-mailto>Start a conversation <i data-icon="arrow-up-right"></i></a>
         </div>
