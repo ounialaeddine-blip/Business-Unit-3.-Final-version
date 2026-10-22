@@ -36,11 +36,6 @@ Tip: in VS Code, the **Live Server** extension reloads the page every time you s
 
 Script order in each HTML file matters: `data.js` → `common.js` → `home.js` (or `member.js`).
 
-## ⚠️ Two logo files to add
-The logos are hosted by Lovable and are **not** in your GitHub project. Open each link in your browser, save the image, and put it in the `images/` folder with the exact name:
-
-1. `images/bu3-logo.png` — https://bu3-member-spotlight.lovable.app/__l5e/assets-v1/579819ac-42b3-4a4e-aee6-10e5068effd8/bu3-logo.png
-2. `images/jeeniso-logo.png` — https://bu3-member-spotlight.lovable.app/__l5e/assets-v1/84ed6e9d-7c92-4370-9457-bcead9871cb3/jeeniso-logo.png
 
 Until you do, the BU3 logo shows as a small 64px version (`images/favicon.png`, a bit blurry in the big hero) and the JEENISo emblem in the footer is simply hidden.
 
